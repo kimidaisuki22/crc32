@@ -20,6 +20,7 @@ int main(int argc, char **argv) {
               << std::endl;
     return 0;
   }
+  std::cout << "The crc32 of hello world should be:	0x0D4A1185\n";
 
   std::string s = "hello world";
   uint32_t crc = crc32_byte((uint8_t *)s.c_str(), s.length());
