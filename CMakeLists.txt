@@ -31,9 +31,9 @@ include(GNUInstallDirs)
         ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
     )
     install(EXPORT crc32
-        FILE crc32.cmake
+        FILE crc32Config.cmake
         NAMESPACE crc32::
-        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/crc32
+        DESTINATION share/crc32
     )
     install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 endif()
