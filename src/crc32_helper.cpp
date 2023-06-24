@@ -1,5 +1,5 @@
-#include "crc32_helper.h"
-#include "crc32.h"
+#include "crc32/crc32_helper.h"
+#include "crc32/crc32.h"
 #include <fstream>
 uint32_t crc_file(std::istream &in) {
   uint32_t crc = 0;

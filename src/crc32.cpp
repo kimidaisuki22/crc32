@@ -1,4 +1,4 @@
-#include "crc32.h"
+#include "crc32/crc32.h"
 #include<stdint.h>
 #ifdef __cplusplus
 extern "C"{

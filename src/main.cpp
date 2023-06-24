@@ -1,5 +1,5 @@
-#include "crc32.h"
-#include "crc32_helper.h"
+#include "crc32/crc32.h"
+#include "crc32/crc32_helper.h"
 #include <cassert>
 #include <iostream>
 #include <string>

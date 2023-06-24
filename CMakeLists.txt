@@ -4,11 +4,20 @@ project(crc32 VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-add_library(crc32 crc32.cpp crc32_helper.cpp)
+add_library(crc32 src/crc32.cpp src/crc32_helper.cpp)
+target_include_directories(crc32 PUBLIC
+    $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+    $<INSTALL_INTERFACE:include>)
 
 set(CPACK_PROJECT_NAME ${PROJECT_NAME})
 set(CPACK_PROJECT_VERSION ${PROJECT_VERSION})
-include(CPack)
 
-add_executable(main main.cpp)
-target_link_libraries(main crc32)
+
+
+if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
+    option(install_crc32 "Install crc32" ON)
+    add_executable(main src/main.cpp)
+    target_link_libraries(main crc32)
+else()
+    option(install_crc32 "Install crc32" OFF)
+endif()
