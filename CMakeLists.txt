@@ -21,3 +21,19 @@ if(CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME)
 else()
     option(install_crc32 "Install crc32" OFF)
 endif()
+
+if(install_crc32)
+include(CPack)
+include(GNUInstallDirs)
+    install(TARGETS crc32
+        EXPORT crc32
+        LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
+        ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR}
+    )
+    install(EXPORT crc32
+        FILE crc32.cmake
+        NAMESPACE crc32::
+        DESTINATION ${CMAKE_INSTALL_LIBDIR}/cmake/crc32
+    )
+    install(DIRECTORY include/ DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
+endif()
